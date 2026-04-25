@@ -339,6 +339,9 @@ export default function ToolPage() {
         </div>
 
         <div className="mx-auto mt-10 max-w-2xl space-y-6">
+          <h2 className="text-center text-2xl font-semibold tracking-tight">
+            Upload For Conversion
+          </h2>
           <FileDropzone
             onFiles={onFiles}
             accept={tool.accept}
