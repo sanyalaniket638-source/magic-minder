@@ -1,7 +1,7 @@
 import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
 import { ToolCard } from "@/components/ToolCard";
-import { TOOLS } from "@/lib/tools";
+import { TOOLS, CATEGORIES } from "@/lib/tools";
 import { ShieldCheck, Zap, FileStack, Sparkles } from "lucide-react";
 
 const Index = () => (
@@ -24,13 +24,22 @@ const Index = () => (
         </p>
       </section>
 
-      {/* Tools grid */}
-      <section className="container pb-16">
-        <div className="grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
-          {TOOLS.map((t) => (
-            <ToolCard key={t.id} tool={t} />
-          ))}
-        </div>
+      {/* Tools grouped by category */}
+      <section className="container space-y-12 pb-16">
+        {CATEGORIES.map((cat) => {
+          const items = TOOLS.filter((t) => t.category === cat);
+          if (items.length === 0) return null;
+          return (
+            <div key={cat}>
+              <h2 className="mb-5 text-xl font-bold tracking-tight">{cat}</h2>
+              <div className="grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
+                {items.map((t) => (
+                  <ToolCard key={t.id} tool={t} />
+                ))}
+              </div>
+            </div>
+          );
+        })}
       </section>
 
       {/* Trust strip */}
