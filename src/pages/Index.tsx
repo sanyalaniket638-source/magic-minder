@@ -2,7 +2,9 @@ import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
 import { ToolCard } from "@/components/ToolCard";
 import { TOOLS, CATEGORIES } from "@/lib/tools";
-import { ShieldCheck, Zap, FileStack, Sparkles } from "lucide-react";
+import { ShieldCheck, Zap, FileStack, Sparkles, FileCog, ArrowRight } from "lucide-react";
+import { Link } from "react-router-dom";
+import { Button } from "@/components/ui/button";
 
 const Index = () => (
   <div className="min-h-screen bg-gradient-hero">
@@ -21,6 +23,18 @@ const Index = () => (
         <p className="mx-auto mt-5 max-w-2xl text-lg text-muted-foreground">
           Merge, split, compress, convert, rotate and more — all online and
           completely free. No upload, no wait. Pick a tool and start in seconds.
+        </p>
+        <div className="mt-8 flex justify-center">
+          <Button asChild size="lg" className="gap-2">
+            <Link to="/convert">
+              <FileCog className="h-5 w-5" />
+              Universal Converter
+              <ArrowRight className="h-4 w-4" />
+            </Link>
+          </Button>
+        </div>
+        <p className="mt-3 text-xs text-muted-foreground">
+          Upload any file → choose a format → download. PDF, JPG, PNG, WebP, DOCX, TXT.
         </p>
       </section>
 
